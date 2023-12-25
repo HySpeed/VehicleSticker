@@ -1,0 +1,25 @@
+{
+  "factorio.versions": [
+    {
+      "name": "Factorio Dev",
+      "factorioPath": "t:\\AsRamdiskRamdisk\\TO1D960X\\Factorio\\bin\\x64\\factorio-dev.exe",
+      "active": true
+    }
+  ],
+  "Lua.workspace.library": [
+    "\"c:/Users/Jon/AppData/Roaming/Code/User/workspaceStorage/ebe0c4f7db0c0334754ed69908077747/justarandomgeek.factoriomod-debug/sumneko-3rd/factorio/library\"",
+    "t:\\AsRamdiskRamdisk\\TO1D960X\\Factorio\\data",
+    "c:/Users/Jon/AppData/Roaming/Code/User/workspaceStorage/12bb91f53692e8d43aadbf930a4a4ce7/justarandomgeek.factoriomod-debug/sumneko-3rd/factorio/library"
+  ],
+  "Lua.workspace.userThirdParty": [
+    "c:\\Users\\Jon\\AppData\\Roaming\\Code\\User\\workspaceStorage\\12bb91f53692e8d43aadbf930a4a4ce7\\justarandomgeek.factoriomod-debug\\sumneko-3rd",
+    "c:\\Users\\Jon\\AppData\\Roaming\\Code\\User\\workspaceStorage\\aac5596f29bcae01af670d2d09059905\\justarandomgeek.factoriomod-debug\\sumneko-3rd",
+    "c:\\Users\\Jon\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b73cd7841773bd254b25dd6696fb7bd8\\justarandomgeek.factoriomod-debug\\sumneko-3rd",
+    "c:\\Users\\Jon\\AppData\\Roaming\\Code\\User\\workspaceStorage\\7c7436d650f9a6e5edbf0bf33ccee128\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+  ],
+  "Lua.runtime.version": "Lua 5.2",
+  "Lua.diagnostics.globals": [
+    "__Profiler"
+  ],
+  "Lua.runtime.plugin": "c:/Users/Jon/AppData/Roaming/Code/User/workspaceStorage/12bb91f53692e8d43aadbf930a4a4ce7/justarandomgeek.factoriomod-debug/sumneko-3rd/factorio/plugin.lua"
+}
