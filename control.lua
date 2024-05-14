@@ -88,16 +88,15 @@ end )
 
 -- -----------------------------------------------------------------------------
 
-script.on_event( {
-  defines.events.on_player_created,
-  defines.events.on_player_joined_game
-},
-function( event )
-  local player = game.get_player( event.player_index )
-  if player and player.connected then
-    game.print( {"vs-text.init"} )
-  end
-end )
+script.on_event( { defines.events.on_player_created,
+                   defines.events.on_player_joined_game },
+  function( event )
+    local player = game.get_player( event.player_index )
+    if player and player.connected then
+      game.print( {"vs-text.init"} )
+    end
+  end 
+)
 
 -- -----------------------------------------------------------------------------
 
@@ -105,27 +104,22 @@ end )
 -- -- if 'supported type' get source info and paste to target
 -- -- note: this only triggers on paste that aligns with valid target.  Cannot paste "locomotive" to "cargo-wagon"
 script.on_event( defines.events.on_entity_settings_pasted , function( event )
-  if event.source == nil or event.source.name           == nil   then return end -- no source and name
-  if event.destination == nil or event.destination.name == nil   then return end -- no destination and name
-  if Utils.isSupportedType( event.source.name )         == false then return end -- source is not a supported vehicle
-  if Utils.isSupportedType( event.destination.name )    == false then return end -- dest   is not a supported vehicle
-  if global.stickers[event.source.unit_number]          == nil   then return end -- no sticker on source vehicle
-  local render_id = global.stickers[event.source.unit_number]
-  Sticker.pasteSticker( event.destination, render_id )
+  Sticker.pasteSticker( event )
+end )
+
+-- -----------------------------------------------------------------------------
+-- "Alt-Mode" toggled
+-- if now disabled, hide stickers
+-- if no enabled, show stickers
+script.on_event( defines.events.on_player_toggled_alt_mode, function( event )
+  -- loop through all stickers and updating their visibility
+  -- game.print( "alt mode: " .. tostring( event.alt_mode ) )
+  local stickers = global.stickers
+  for sticker  in pairs( stickers ) do
+    if type( sticker ) == "number" then
+      rendering.set_visible( stickers[sticker], event.alt_mode )
+    end
+  end
 end )
 
 -- =============================================================================
-
-
--- data:extend{{
---   type = "custom-input",
---   name = "cw-build",
---   key_sequence = "",
---   linked_game_control = "build",
---   action = "lua"
--- }}
-
--- script.on_event("cw-build", function(event)
---   -- code removed for brevity
--- end)
-

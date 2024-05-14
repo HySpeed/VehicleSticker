@@ -46,27 +46,30 @@ end
 
 -- -----------------------------------------------------------------------------
 
+-- build list of wagons, loop through looking for unit_number that is not used
+-- randomly chooses from the list of wagons
+-- ? secondary check to ensure name not used?
+function Utils.selectVehicle( player, vehicle_type )
+  local selected = nil
+  local candidates = {}
+
+  local wagons = player.surface.find_entities_filtered( { name = vehicle_type } )
+  for wagon in pairs( wagons ) do
+    if global.stickers[wagons[wagon].unit_number] == nil then  -- if no render_id, it is not 'claimed'
+      table.insert( candidates, wagons[wagon] )
+    end
+  end
+  if #candidates > 0 then
+    selected = candidates[random( #candidates )]
+  end
+
+  return selected
+end
 --[[
   game.surfaces[1].find_entities_filtered( { name = "cargo-wagon" })
 1: <LuaEntity>{name="cargo-wagon", type="cargo-wagon", unit_number=46}
 2: <LuaEntity>{name="cargo-wagon", type="cargo-wagon", unit_number=45}
 ]]
-
--- build list of wagons, loop through looking for unit_number that is not used
--- ? secondary check to ensure name not used?
--- global.stickers[selected.unit_number]
-function Utils.selectVehicle( player, vehicle_type )
-  local selected = nil
-
-  local wagons = player.surface.find_entities_filtered( { name = vehicle_type } )
-  for wagon in pairs( wagons ) do
-    if global.stickers[wagons[wagon].unit_number] == nil then  -- if no render_id, it is not 'claimed'
-      selected = wagons[wagon]
-    end
-  end
-
-  return selected
-end
 
 -- -----------------------------------------------------------------------------
 

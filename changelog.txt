@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+  Changes:
+    - Added support for rich text (e.g. item tags)
+    - Sticker visibility responds to "Alt-Mode" toggle
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+  Changes:
+    - Small refactor
+    - Added random for target wagon
+    - If the name is empty, render_id is cleared
+---------------------------------------------------------------------------------------------------
 Version: 1.3.1
   Changes:
     - Added remote cammand for add_wagon_sticker

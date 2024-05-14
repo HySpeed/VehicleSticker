@@ -96,7 +96,7 @@ local function create_sticker_label_frame( event )
     type = "label",
     caption = "R: "
   })
-  local r = 110
+  local r = 220
   if existing_id then
      r = math.floor( rendering.get_color( existing_id ).r * 255 )
   end
@@ -116,7 +116,7 @@ local function create_sticker_label_frame( event )
     type = "label",
     caption = "G: "
   })
-  local g = 111
+  local g = 221
   if existing_id then
      g = math.floor( rendering.get_color( existing_id ).g * 255 )
   end
@@ -135,7 +135,7 @@ local function create_sticker_label_frame( event )
     type = "label",
     caption = "B: "
   })
-  local b = 112
+  local b = 222
   if existing_id then
      b = math.floor( rendering.get_color( existing_id ).b * 255 )
   end
