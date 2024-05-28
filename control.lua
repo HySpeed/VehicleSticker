@@ -111,6 +111,7 @@ end )
 -- "Alt-Mode" toggled
 -- if now disabled, hide stickers
 -- if no enabled, show stickers
+--[[ -- replaced by 'only_in_alt_mode = true,' in render
 script.on_event( defines.events.on_player_toggled_alt_mode, function( event )
   -- loop through all stickers and updating their visibility
   -- game.print( "alt mode: " .. tostring( event.alt_mode ) )
@@ -121,5 +122,6 @@ script.on_event( defines.events.on_player_toggled_alt_mode, function( event )
     end
   end
 end )
+]]
 
 -- =============================================================================
