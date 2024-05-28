@@ -29,6 +29,7 @@ function Sticker.applySticker( selected, surface, stickerText, color )
     target    = selected,
     target_offset = { 0.0, -1.0 },
     text      = stickerText,
+    only_in_alt_mode = true,
     use_rich_text = true
   })
 
