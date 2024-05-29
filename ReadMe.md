@@ -28,7 +28,7 @@ Adds the given text to a random train cargo wagon
 #### Parameters
 
 * **player_name**: The **player_name** to use for surface search.
-* **message**:  The **message** to be puton the wagon.
+* **message**:  The **message** to be put on the wagon.
 * R: Red color hue (000-255)
 * G: Green color hue (000-255)
 * B: Blue color hue (000-255)
@@ -39,7 +39,29 @@ If RGB are omitted or invalid, a random color above 100 is used.
 
 * Display the message at the character.
 
-> `remote.call( "vehicleSticker", "add_wagon_sticker", "hyspeed", "_follower_", 100, 150, 200 )`
+> `/sc remote.call( 'vehicleSticker', 'add_wagon_sticker', 'hyspeed', '_follower_' )`
+
+--------------------------------------------------------------------------------
+
+### **AddLocomotiveSticker**
+
+Adds the given text to a random train locomotive
+
+#### Parameters
+
+* **player_name**: The **player_name** to use for surface search.
+* **message**:  The **message** to be put on the locomotive.
+* R: Red color hue (000-255)
+* G: Green color hue (000-255)
+* B: Blue color hue (000-255)
+
+If RGB are omitted or invalid, a random color above 100 is used.
+
+#### Examples
+
+* Display the message at the character.
+
+> `/sc remote.call( 'vehicleSticker', 'add_locomotive_sticker', 'hyspeed', '_subscriber_', 100, 150, 200 )`
 
 --------------------------------------------------------------------------------
 
