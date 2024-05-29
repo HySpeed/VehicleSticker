@@ -91,6 +91,32 @@ function Sticker.addWagonSticker( player_name, message, r, g, b )
 
 end
 
+-- -----------------------------------------------------------------------------
+
+-- External interface for action
+function Sticker.addLocomotiveSticker( player_name, message, r, g, b )
+  if settings.global["vs_add_locomotive_sticker"].value ~= true then return end
+  
+  -- validations (on error, most will display a message and return nil or false)
+  local player = Validators.validatePlayerName( player_name )
+  if not player then return end
+  if not Validators.validateMessage( message ) then return end
+  if not Validators.validateColorRGB( r, g, b ) then
+    r, g, b = Utils.createColorRGB()
+  end
+  local color = { r, g, b }
+
+  local selected = Utils.selectVehicle( player, "locomotive" )
+  if selected ~= nil then
+    Sticker.applySticker( selected, selected.surface, message, color )
+    local gps = string.format( "[gps=%s,%s,%s]", selected.position.x, selected.position.y, player.surface.name )
+    game.print( { "", { "vs-text.added_sticker", message, gps } } )
+  else
+    game.print( { "", {"vs-text.name"}, {"vs-error.no_locomotive", message} }, Constants.COLOR.ERROR )
+  end
+
+end
+
 -- =============================================================================
 
 return Sticker

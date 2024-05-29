@@ -16,6 +16,7 @@ local function onLoad()
   -- Allow for events through integration to apply stickers.
   remote.remove_interface( "vehicleSticker" )
   remote.add_interface( "vehicleSticker", {
+    add_locomotive_sticker=Sticker.addLocomotiveSticker,
     add_wagon_sticker=Sticker.addWagonSticker
   } )
   end
@@ -106,22 +107,5 @@ script.on_event( { defines.events.on_player_created,
 script.on_event( defines.events.on_entity_settings_pasted , function( event )
   Sticker.pasteSticker( event )
 end )
-
--- -----------------------------------------------------------------------------
--- "Alt-Mode" toggled
--- if now disabled, hide stickers
--- if no enabled, show stickers
---[[ -- replaced by 'only_in_alt_mode = true,' in render
-script.on_event( defines.events.on_player_toggled_alt_mode, function( event )
-  -- loop through all stickers and updating their visibility
-  -- game.print( "alt mode: " .. tostring( event.alt_mode ) )
-  local stickers = global.stickers
-  for sticker  in pairs( stickers ) do
-    if type( sticker ) == "number" then
-      rendering.set_visible( stickers[sticker], event.alt_mode )
-    end
-  end
-end )
-]]
 
 -- =============================================================================
